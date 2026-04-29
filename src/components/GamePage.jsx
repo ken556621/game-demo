@@ -47,12 +47,12 @@ export default function GamePage({ user, onLogout }) {
         </button>
       </header>
 
-      <main className="max-w-lg mx-auto px-5 py-6 sm:py-8 space-y-6">
+      <main className="game-main">
         {/* Stats Card */}
         <StatsCard user={{ ...user, winCount }} />
 
         {/* Wheel section */}
-        <div className="bg-gradient-to-br from-red-900 to-red-800 border border-yellow-700/40 rounded-3xl p-5 sm:p-6 shadow-xl">
+        <div className="game-card wheel-card bg-gradient-to-br from-red-900 to-red-800 border border-yellow-700/40 rounded-3xl shadow-xl">
           <SpinWheel
             referrals={user.referrals}
             spinsRemaining={spinsRemaining}
@@ -60,7 +60,7 @@ export default function GamePage({ user, onLogout }) {
           />
 
           {/* Info below wheel */}
-          <div className="mt-6 space-y-3 text-center">
+          <div className="wheel-info text-center">
             <p className="text-white text-sm">
               剩餘抽獎次數：
               <span className={`font-bold text-lg ml-1 ${spinsRemaining > 0 ? 'text-yellow-400' : 'text-gray-400'}`}>
@@ -75,7 +75,7 @@ export default function GamePage({ user, onLogout }) {
               <span className="text-green-400 font-bold"> {winRate}% </span>）
             </p>
             {spinsRemaining === 0 && (
-              <p className="text-orange-400 text-xs bg-orange-900/30 rounded-xl px-4 py-2 inline-block">
+              <p className="notice-pill text-orange-400 text-xs bg-orange-900/30 rounded-xl inline-block">
                 抽獎次數已用完，介紹更多朋友可獲得額外抽獎機會！
               </p>
             )}
@@ -83,7 +83,7 @@ export default function GamePage({ user, onLogout }) {
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs px-2">
+        <div className="legend-card flex flex-wrap justify-center text-xs">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-sm bg-yellow-600 border border-yellow-400 inline-block"></span>
             <span className="text-yellow-200">已介紹好友格位</span>
