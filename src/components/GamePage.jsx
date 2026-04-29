@@ -34,8 +34,8 @@ export default function GamePage({ user, onLogout }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-red-950 via-red-900 to-yellow-950">
       {/* Header */}
-      <header className="bg-red-950/80 backdrop-blur border-b border-yellow-700/30 px-4 py-3 flex items-center justify-between sticky top-0 z-20">
-        <div className="flex items-center gap-2">
+      <header className="relative bg-red-950/80 backdrop-blur border-b border-yellow-700/30 px-5 py-4 flex items-center justify-end sticky top-0 z-20">
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2.5">
           <span className="text-2xl">🎡</span>
           <span className="text-yellow-400 font-bold text-lg">幸運轉盤</span>
         </div>
@@ -47,12 +47,12 @@ export default function GamePage({ user, onLogout }) {
         </button>
       </header>
 
-      <main className="max-w-lg mx-auto px-4 py-6 space-y-5">
+      <main className="max-w-lg mx-auto px-5 py-6 sm:py-8 space-y-6">
         {/* Stats Card */}
         <StatsCard user={{ ...user, winCount }} />
 
         {/* Wheel section */}
-        <div className="bg-gradient-to-br from-red-900 to-red-800 border border-yellow-700/40 rounded-2xl p-5 shadow-xl">
+        <div className="bg-gradient-to-br from-red-900 to-red-800 border border-yellow-700/40 rounded-3xl p-5 sm:p-6 shadow-xl">
           <SpinWheel
             referrals={user.referrals}
             spinsRemaining={spinsRemaining}
@@ -60,7 +60,7 @@ export default function GamePage({ user, onLogout }) {
           />
 
           {/* Info below wheel */}
-          <div className="mt-5 space-y-2 text-center">
+          <div className="mt-6 space-y-3 text-center">
             <p className="text-white text-sm">
               剩餘抽獎次數：
               <span className={`font-bold text-lg ml-1 ${spinsRemaining > 0 ? 'text-yellow-400' : 'text-gray-400'}`}>
@@ -75,7 +75,7 @@ export default function GamePage({ user, onLogout }) {
               <span className="text-green-400 font-bold"> {winRate}% </span>）
             </p>
             {spinsRemaining === 0 && (
-              <p className="text-orange-400 text-xs bg-orange-900/30 rounded-lg px-3 py-1.5 inline-block">
+              <p className="text-orange-400 text-xs bg-orange-900/30 rounded-xl px-4 py-2 inline-block">
                 抽獎次數已用完，介紹更多朋友可獲得額外抽獎機會！
               </p>
             )}
@@ -83,12 +83,12 @@ export default function GamePage({ user, onLogout }) {
         </div>
 
         {/* Legend */}
-        <div className="flex gap-3 justify-center text-xs">
-          <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs px-2">
+          <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-sm bg-yellow-600 border border-yellow-400 inline-block"></span>
             <span className="text-yellow-200">已介紹好友格位</span>
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-sm bg-red-700 inline-block"></span>
             <span className="text-yellow-200">空白格位</span>
           </div>
@@ -97,7 +97,7 @@ export default function GamePage({ user, onLogout }) {
         {/* History */}
         <HistoryTable history={history} />
 
-        <p className="text-center text-red-900/50 text-xs pb-2">© 2026 幸運轉盤活動</p>
+        <p className="text-center text-red-900/50 text-xs pt-1 pb-4">© 2026 幸運轉盤活動</p>
       </main>
 
       {/* Modal */}

@@ -92,7 +92,7 @@ export default function SpinWheel({ referrals, spinsRemaining, onSpinComplete })
   }, [spinning, spinsRemaining, currentDeg, slots, sliceAngle, onSpinComplete]);
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-7">
       {/* Pointer */}
       <div className="relative">
         <div className="absolute top-[-18px] left-1/2 -translate-x-1/2 z-10 w-0 h-0"
@@ -185,7 +185,7 @@ export default function SpinWheel({ referrals, spinsRemaining, onSpinComplete })
         onClick={handleSpin}
         disabled={spinning || spinsRemaining <= 0}
         className={`
-          relative px-10 py-4 rounded-full text-xl font-bold shadow-xl transition-all
+          relative px-11 py-4 rounded-full text-xl font-bold shadow-xl transition-all
           ${spinning || spinsRemaining <= 0
             ? 'bg-gray-500 text-gray-300 cursor-not-allowed opacity-60'
             : 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-red-900 hover:from-yellow-300 hover:to-yellow-500 active:scale-95 hover:shadow-yellow-400/50 hover:shadow-2xl'

@@ -1,13 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 const COLORS = ['#fbbf24', '#ef4444', '#f97316', '#10b981', '#3b82f6', '#a855f7', '#ec4899', '#fff'];
 
 export default function Confetti({ active }) {
-  const containerRef = useRef(null);
-
   useEffect(() => {
     if (!active) return;
-    const container = containerRef.current;
     const pieces = [];
 
     for (let i = 0; i < 80; i++) {
@@ -32,5 +29,5 @@ export default function Confetti({ active }) {
     return () => { clearTimeout(cleanup); pieces.forEach(p => p.remove()); };
   }, [active]);
 
-  return <div ref={containerRef} />;
+  return null;
 }
